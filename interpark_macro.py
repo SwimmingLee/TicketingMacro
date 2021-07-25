@@ -4,11 +4,24 @@ from PyQt5.QtCore import Qt, QDate, QDateTime
 from PyQt5.QtGui import QIcon
 from interpark_driver import InterparkMacro
 
+import private_info
+
 class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
         self.initUI()
+        info = private_info.info
+
+        self.id_edit.setText(info['id'])
+        self.pw_edit.setText(info['pw'])
+        self.show_edit.setText(info['show_code'])
+        self.date_time_edit.setDateTime(QDateTime(info['show_date_time'][0], info['show_date_time'][1], info['show_date_time'][2], info['show_date_time'][3], info['show_date_time'][4]))
+        self.phone_number_edit1.setText(info['phone_number'][0])
+        self.phone_number_edit2.setText(info['phone_number'][1])
+        self.phone_number_edit3.setText(info['phone_number'][2])
+        self.birth_day_edit.setText(info['birth_day'])
+
 
     def initUI(self):
         self.setWindowTitle('SwimmingLee Interpark Macro')
